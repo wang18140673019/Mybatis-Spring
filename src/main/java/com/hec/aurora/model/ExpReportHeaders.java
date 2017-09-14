@@ -11,7 +11,7 @@ public class ExpReportHeaders  extends BaseDTO {
     @Id
     @Column(name = "EXP_REPORT_HEADER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select EXP_REPORT_HEADERS_S.nextval from dual")
-    private Integer expReportHeaderId;
+    private Integer exp_report_header_id;
     
     @Transient
     private Date sys_date;
@@ -283,12 +283,13 @@ public class ExpReportHeaders  extends BaseDTO {
     @Column(name = "REVERSED_TYPE")
     private String reversedType;
 
-	public Integer getExpReportHeaderId() {
-		return expReportHeaderId;
+
+	public Integer getExp_report_header_id() {
+		return exp_report_header_id;
 	}
 
-	public void setExpReportHeaderId(Integer expReportHeaderId) {
-		this.expReportHeaderId = expReportHeaderId;
+	public void setExp_report_header_id(Integer exp_report_header_id) {
+		this.exp_report_header_id = exp_report_header_id;
 	}
 
 	public Date getSys_date() {

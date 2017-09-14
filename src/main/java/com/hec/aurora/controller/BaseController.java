@@ -19,21 +19,21 @@ public abstract class BaseController<T> implements IController<T> {
 	}
 
 	@Override
-	public CompositeMap query(CompositeMap map) {
+	public CompositeMap query(CompositeMap Amap) {
 		// TODO Auto-generated method stub
 		
 		return null;
 	}
 
 	
-	public void setAttributes(CompositeMap mapAll){
+	public void setAttributes(Map mapAll){
 		this.setMapParaData(mapAll);
 		this.setFilterData(mapAll);
 		this.setConsumer(mapAll);
 	}
 	
 
-	public void setMapParaData(CompositeMap mapAll){
+	public void setMapParaData(Map mapAll){
 		if(mapAll.get("parametersNext")!=null){
 			mapParaData=(CompositeMap) mapAll.get("parametersNext");
 		         //MapBeanData前端传入的一个实体数据
@@ -42,7 +42,7 @@ public abstract class BaseController<T> implements IController<T> {
 		
 	}
 	
-	public IResultSetConsumer setConsumer(CompositeMap mapAll){
+	public IResultSetConsumer setConsumer(Map mapAll){
 	
 		if(mapAll.get("consumerNext")!=null)
 
@@ -65,7 +65,7 @@ public abstract class BaseController<T> implements IController<T> {
 		return filterData;
 	}
 
-	public FetchDescriptor setFilterData(CompositeMap mapAll) {
+	public FetchDescriptor setFilterData(Map mapAll) {
 		if (mapAll.get("descNext") != null) {
 			filterData = (FetchDescriptor) mapAll.get("descNext");
 		}
@@ -107,7 +107,7 @@ public abstract class BaseController<T> implements IController<T> {
 		return classPath;
 
 	}
-	public CompositeMap getCurrentParameter(CompositeMap mapAll){
+	public CompositeMap getCurrentParameter(Map mapAll){
 		CompositeMap currentParameter=null;
 		if(mapAll.get("currentParameter")!=null)
 
@@ -129,7 +129,7 @@ public abstract class BaseController<T> implements IController<T> {
 	 * @param t 赋值后的实体类名
 	 * @return
 	 */
-	public T getBeanFromMap(CompositeMap mapAll,T t){
+	public T getBeanFromMap(Map mapAll,T t){
 		CompositeMap currentParameter= getCurrentParameter(mapAll);
 		t=mybatisUtil.initBean(currentParameter, t);
 		return t;

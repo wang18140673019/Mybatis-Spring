@@ -1,6 +1,7 @@
 package com.hec.aurora.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,8 +23,9 @@ private CountryService countryService=null;
 
 
 	@Override
-	public CompositeMap query(CompositeMap map) {
+	public CompositeMap query(CompositeMap Amap) {
 		// TODO Auto-generated method stub
+		Map map=(Map) Amap.get("allMap");
 		this.queryPrepare(map);
         //下面这部分是mybatis部分
 	   List<Country> countryList = countryService.selectByCountry(this.countryPara, 1, 5);
@@ -36,8 +38,9 @@ private CountryService countryService=null;
 
 
 	@Override
-	public CompositeMap insert(CompositeMap map) {
+	public CompositeMap insert(CompositeMap Amap) {
 		// TODO Auto-generated method stub
+		Map map=(Map) Amap.get("allMap");
 		super.getBeanFromMap(map, countryPara);
 		System.out.println(countryPara);
 		return null;
@@ -64,7 +67,7 @@ private CountryService countryService=null;
 		return null;
 	}
 	
-	public void queryPrepare(CompositeMap map){
+	public void queryPrepare(Map map){
 		super.setAttributes(map);
 		BaseUtil.initBean(this.countryPara,super.getMapParaData());
 		countryService=Springfactory.getBean("countryService");

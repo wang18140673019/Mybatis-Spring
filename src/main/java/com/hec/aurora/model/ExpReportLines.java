@@ -11,7 +11,7 @@ public class ExpReportLines  extends BaseDTO {
     @Id
     @Column(name = "EXP_REPORT_LINE_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select EXP_REPORT_LINES_S.nextval from dual")
-    private Integer expReportLineId;
+    private Integer exp_report_line_id;
 
     @Column(name = "LINE_NUMBER")
     private Integer line_number;
@@ -153,7 +153,7 @@ public class ExpReportLines  extends BaseDTO {
     
     //以下为之前就存在的
     @Column(name = "EXP_REPORT_HEADER_ID")
-    private Integer expReportHeaderId;
+    private Integer exp_report_header_id;
 
     @Column(name = "CITY")
     private String city;
@@ -355,12 +355,14 @@ public class ExpReportLines  extends BaseDTO {
     @Column(name = "REVERSED_BY")
     private Integer reversedBy;
 
-	public Integer getExpReportLineId() {
-		return expReportLineId;
+	
+
+	public Integer getExp_report_line_id() {
+		return exp_report_line_id;
 	}
 
-	public void setExpReportLineId(Integer expReportLineId) {
-		this.expReportLineId = expReportLineId;
+	public void setExp_report_line_id(Integer exp_report_line_id) {
+		this.exp_report_line_id = exp_report_line_id;
 	}
 
 	public Integer getLine_number() {
@@ -715,12 +717,13 @@ public class ExpReportLines  extends BaseDTO {
 		this._status = _status;
 	}
 
-	public Integer getExpReportHeaderId() {
-		return expReportHeaderId;
+
+	public Integer getExp_report_header_id() {
+		return exp_report_header_id;
 	}
 
-	public void setExpReportHeaderId(Integer expReportHeaderId) {
-		this.expReportHeaderId = expReportHeaderId;
+	public void setExp_report_header_id(Integer exp_report_header_id) {
+		this.exp_report_header_id = exp_report_header_id;
 	}
 
 	public String getCity() {
