@@ -131,9 +131,9 @@ public class PageMapperTest extends BasicTest {
            country=PageMapperTest.initBean(countryMap, country);
            countryMapper.insertSelective(country);
            //sqlSession.commit();
-          // country.setCountryname(null);
+            country.setCountryname(null);
            //country.setId(null);
-           //countryMapper.insertSelective(country);
+           countryMapper.insertSelective(country);
           
     }
     

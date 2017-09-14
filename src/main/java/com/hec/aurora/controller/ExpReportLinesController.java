@@ -17,8 +17,8 @@ public class ExpReportLinesController extends BaseController<ExpReportLines> {
 		// TODO Auto-generated method stub
 		this.beforeRun(map);
 		CompositeMap currentParameter=(CompositeMap)map.get("currentParameter");
-		Integer expReportHeaderId=currentParameter.getParent().getParent().getInt("exp_report_header_id");
-		expReportLines.setExpReportHeaderId(expReportHeaderId);
+		Object expReportHeaderId=currentParameter.getObject("../../@exp_report_header_id");
+		//expReportLines.setExpReportHeaderId(expReportHeaderId);
 		expReportLinesService.insertSelective(expReportLines);
 		
 		return null;
