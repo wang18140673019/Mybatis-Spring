@@ -33,6 +33,8 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Country extends BaseDTO {
 	/**
 	 * 主键

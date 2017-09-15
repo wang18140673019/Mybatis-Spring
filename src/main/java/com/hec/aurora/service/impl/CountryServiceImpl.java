@@ -28,8 +28,6 @@ public class CountryServiceImpl extends BaseService<Country> implements CountryS
             criteria.andLike("countrycode", "%" + country.getCountrycode() + "%");
         }
       
-       
-        
         if (country.getId() != null) {
             criteria.andEqualTo("id", country.getId());
         }

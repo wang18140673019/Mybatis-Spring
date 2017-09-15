@@ -50,6 +50,7 @@ public class ExpReportHeadersController extends BaseController<ExpReportHeaders>
 	public CompositeMap execute(CompositeMap Amap) {
 		// TODO Auto-generated method stub
 		Map map=(Map) Amap.get("allMap");
+		this.beforeRun(map);
 		return null;
 	}
 	

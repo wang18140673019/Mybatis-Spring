@@ -9,6 +9,7 @@ import com.aurora.mybatis.BaseUtil;
 import com.hec.aurora.model.Country;
 import com.hec.aurora.service.CountryService;
 import com.hec.aurora.util.Springfactory;
+import com.hec.aurora.util.mybatisUtil;
 import com.test.Persion;
 
 import uncertain.composite.CompositeMap;
@@ -28,7 +29,7 @@ private CountryService countryService=null;
 		Map map=(Map) Amap.get("allMap");
 		this.queryPrepare(map);
         //下面这部分是mybatis部分
-	   List<Country> countryList = countryService.selectByCountry(this.countryPara, 1, 5);
+	   List<Country> countryList = countryService.selectByCountry(this.countryPara, super.getFilterData().getPageNum(), super.getFilterData().getPageSize());
 	   BaseUtil.listToConsumer(countryList, getConsumer(), "records", "record");
 		  CompositeMap queryData=new CompositeMap();
 		    queryData.put("queryData",super.getConsumer());
@@ -69,7 +70,8 @@ private CountryService countryService=null;
 	
 	public void queryPrepare(Map map){
 		super.setAttributes(map);
-		BaseUtil.initBean(this.countryPara,super.getMapParaData());
+		//BaseUtil.initBean(this.countryPara,super.getMapParaData());
+		countryPara=mybatisUtil.initBean(this.getMapParaData(),this.countryPara);
 		countryService=Springfactory.getBean("countryService");
 		if(countryService==null){
 		   throw new NullPointerException("没有找到bean:countryService");
